@@ -1,11 +1,13 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { UserEntity } from './entities/user.entity';
+import { UserEntity } from './user.entity';
 
 @Injectable()
 export class UserService {
-  constructor(@InjectModel(UserEntity.name) private userModel: Model<UserEntity>) {}
+  constructor(@InjectModel(UserEntity.name) private userModel: Model<UserEntity>) {
+
+  }
 
   async create(userDto: Partial<UserEntity>): Promise<UserEntity> {
     const user = new this.userModel(userDto);
