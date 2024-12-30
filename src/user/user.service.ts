@@ -27,11 +27,15 @@ export class UserService {
   }
 
   async update(id: string, userDto: Partial<UserEntity>): Promise<UserEntity> {
-    const user = await this.userModel.findByIdAndUpdate(id, userDto, { new: true }).exec();
-    if (!user) {
+    try {
+      const user = await this.userModel.findByIdAndUpdate(id, userDto, { new: true }).exec();
+      if (!user) {
+        throw new NotFoundException('User not found');
+      }
+      return user;
+    } catch (e) {
       throw new NotFoundException('User not found');
     }
-    return user;
   }
 
   async remove(id: string): Promise<void> {
