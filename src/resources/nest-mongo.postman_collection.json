@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "f5cb6dc0-16bd-492b-b907-74dedd880007",
-		"name": "Postman-Collection-Nestjs",
+		"name": "NestJS MongoDB",
 		"description": "Postman collection for CRUD APIs of the NestJS User service.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "513031"
